@@ -15,6 +15,10 @@ app.use("/api/notes", noteRoutes);
 app.use("/api/auth", authRoutes);
 app.use(errorHandler);
 
+app.get("/", (req, res) => {
+  res.send("API Running");
+});
+
 mongoose
   .connect(process.env.MONGO_URI)
   .then(() => console.log("MongoDB Connected"))
